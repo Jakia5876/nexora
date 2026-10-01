@@ -21,8 +21,6 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;overflow-x:hidden;}
-
-/* LOGIN */
 #login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#2d1060 0%,var(--bg) 70%);}
 .login-box{background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:48px 40px;width:360px;text-align:center;}
 .login-logo{font-size:36px;margin-bottom:8px;}
@@ -32,9 +30,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 .login-box input:focus{border-color:var(--accent2);}
 .login-box button{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;border-radius:10px;padding:13px;color:#fff;font-family:var(--font);font-size:15px;font-weight:600;cursor:pointer;transition:.2s;}
 .login-box button:hover{opacity:.9;transform:translateY(-1px);}
-.login-err{color:var(--red);font-size:13px;margin-top:8px;}
-
-/* APP */
+.login-box button:disabled{opacity:.6;cursor:wait;transform:none;}
+.login-err{color:var(--red);font-size:13px;margin-top:8px;word-break:break-word;}
 #app{display:none;flex-direction:column;min-height:100vh;}
 .topbar{background:var(--card);border-bottom:1px solid var(--border);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .topbar-left{display:flex;align-items:center;gap:12px;}
@@ -46,7 +43,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 .notif-dot{position:absolute;top:4px;right:4px;width:8px;height:8px;background:var(--orange);border-radius:50%;display:none;}
 .logout-btn{background:transparent;border:1px solid var(--border2);border-radius:8px;padding:7px 14px;color:var(--text2);font-family:var(--font);font-size:13px;cursor:pointer;}
 .logout-btn:hover{border-color:var(--red);color:var(--red);}
-
 .layout{display:flex;flex:1;}
 .sidebar{width:220px;background:var(--card);border-right:1px solid var(--border);padding:20px 12px;display:flex;flex-direction:column;gap:4px;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto;}
 .nav-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;font-size:14px;color:var(--text2);transition:.15s;border:1px solid transparent;}
@@ -54,12 +50,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 .nav-item.active{background:var(--accent);color:#fff;border-color:var(--accent2);}
 .nav-icon{font-size:16px;width:20px;text-align:center;}
 .nav-badge{margin-left:auto;background:var(--orange);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;}
-
-.main{flex:1;padding:24px;overflow-y:auto;}
+.main{flex:1;padding:24px;overflow-y:auto;min-width:0;}
 .page{display:none;}
 .page.active{display:block;}
-
-/* CARDS */
 .page-title{font-size:20px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;position:relative;overflow:hidden;}
@@ -73,14 +66,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 .stat-val{font-size:28px;font-weight:700;font-family:var(--mono);}
 .stat-sub{font-size:11px;color:var(--text3);margin-top:4px;}
 .stat-icon{position:absolute;right:16px;top:16px;font-size:28px;opacity:.2;}
-
-/* TABLE */
-.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:24px;}
+.table-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:auto;margin-bottom:24px;}
 .table-head{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
 .table-head-title{font-size:15px;font-weight:600;}
 .table-actions{display:flex;gap:8px;}
 table{width:100%;border-collapse:collapse;}
-th{padding:11px 16px;text-align:left;font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;background:var(--bg3);border-bottom:1px solid var(--border);}
+th{padding:11px 16px;text-align:left;font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;background:var(--bg3);border-bottom:1px solid var(--border);white-space:nowrap;}
 td{padding:12px 16px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:middle;}
 tr:last-child td{border-bottom:none;}
 tr:hover td{background:var(--bg3);}
@@ -91,8 +82,6 @@ tr:hover td{background:var(--bg3);}
 .badge.rejected{background:#7f1d1d;color:var(--red);}
 .badge.confirmed{background:#14532d;color:var(--green);}
 .badge.expired{background:#1e1b4b;color:#818cf8;}
-
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-family:var(--font);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:.15s;}
 .btn-sm{padding:5px 12px;font-size:12px;}
 .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;}
@@ -104,8 +93,6 @@ tr:hover td{background:var(--bg3);}
 .btn-orange{background:#78350f;color:var(--orange);border:1px solid #92400e;}
 .btn-outline{background:transparent;color:var(--text2);border:1px solid var(--border2);}
 .btn-outline:hover{border-color:var(--accent2);color:var(--accent3);}
-
-/* FORM */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .form-group{display:flex;flex-direction:column;gap:6px;}
 .form-group label{font-size:12px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;}
@@ -116,57 +103,37 @@ tr:hover td{background:var(--bg3);}
 .form-card h3{font-size:15px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
 .form-full{grid-column:1/-1;}
 .save-row{display:flex;justify-content:flex-end;margin-top:16px;}
-
-/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
 .modal-overlay.open{display:flex;}
 .modal{background:var(--card2);border:1px solid var(--border2);border-radius:16px;padding:28px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;}
 .modal h2{font-size:18px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
 .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;}
-
-/* KEY DISPLAY */
 .key-box{background:var(--bg);border:1px solid var(--accent);border-radius:8px;padding:12px 16px;font-family:var(--mono);font-size:16px;font-weight:600;color:var(--accent3);letter-spacing:.1em;text-align:center;margin:12px 0;}
-
-/* TOAST */
-.toast{position:fixed;bottom:24px;right:24px;background:var(--card2);border:1px solid var(--border2);border-radius:10px;padding:14px 20px;font-size:14px;z-index:9999;transform:translateY(100px);opacity:0;transition:.3s;display:flex;align-items:center;gap:10px;}
+.toast{position:fixed;bottom:24px;right:24px;max-width:90vw;background:var(--card2);border:1px solid var(--border2);border-radius:10px;padding:14px 20px;font-size:14px;z-index:9999;transform:translateY(100px);opacity:0;transition:.3s;display:flex;align-items:center;gap:10px;}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast.success{border-color:var(--green);color:var(--green);}
 .toast.error{border-color:var(--red);color:var(--red);}
 .toast.info{border-color:var(--accent2);color:var(--accent3);}
-
-/* PLAN EDITOR */
 .plan-editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .plan-card-edit{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;}
 .plan-card-edit h4{font-size:13px;font-weight:600;color:var(--orange2);margin-bottom:10px;}
 .plan-card-edit input{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:7px 10px;color:var(--text);font-family:var(--mono);font-size:13px;margin-bottom:6px;outline:none;}
 .plan-card-edit input:focus{border-color:var(--accent2);}
 .plan-card-edit label{font-size:11px;color:var(--text3);display:block;margin-bottom:2px;}
-
-/* REVENUE CHART */
 .revenue-bars{display:flex;align-items:flex-end;gap:8px;height:120px;padding:10px 0;}
 .rev-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
 .rev-bar{width:100%;background:linear-gradient(180deg,var(--accent2),var(--accent));border-radius:4px 4px 0 0;min-height:4px;transition:.5s;}
 .rev-label{font-size:10px;color:var(--text3);}
 .rev-val{font-size:10px;color:var(--text2);font-family:var(--mono);}
-
-/* MOBILE */
 @media(max-width:768px){
   .sidebar{display:none;}
   .stats-grid{grid-template-columns:1fr 1fr;}
   .form-grid{grid-template-columns:1fr;}
   .plan-editor-grid{grid-template-columns:1fr;}
 }
-
-/* LOADING */
 .spinner{width:20px;height:20px;border:2px solid var(--border2);border-top-color:var(--accent2);border-radius:50%;animation:spin .6s linear infinite;display:inline-block;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .loading-row td{text-align:center;padding:40px;color:var(--text3);}
-
-/* EMPTY */
-.empty-state{text-align:center;padding:48px 20px;color:var(--text3);}
-.empty-state .empty-icon{font-size:40px;margin-bottom:12px;}
-
-/* CREDIT BAR */
 .credit-bar{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-top:4px;}
 .credit-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--green));}
 </style>
@@ -181,7 +148,7 @@ tr:hover td{background:var(--bg3);}
     <p>Dashboard — Nexora Ai Pro</p>
     <input type="text" id="login-user" placeholder="Username" value="admin"/>
     <input type="password" id="login-pass" placeholder="Password" value=""/>
-    <button onclick="doLogin()">Login →</button>
+    <button id="login-btn" onclick="doLogin()">Login →</button>
     <div class="login-err" id="login-err"></div>
   </div>
 </div>
@@ -213,7 +180,7 @@ tr:hover td{background:var(--bg3);}
     </div>
     <div class="main">
 
-      <!-- DASHBOARD PAGE -->
+      <!-- DASHBOARD -->
       <div class="page active" id="page-dashboard">
         <div class="page-title">📊 Dashboard</div>
         <div class="stats-grid">
@@ -235,7 +202,7 @@ tr:hover td{background:var(--bg3);}
         </div>
       </div>
 
-      <!-- PAYMENTS PAGE -->
+      <!-- PAYMENTS -->
       <div class="page" id="page-payments">
         <div class="page-title">💳 Payments
           <button class="btn btn-outline btn-sm" onclick="loadPayments()">🔄 Refresh</button>
@@ -257,7 +224,7 @@ tr:hover td{background:var(--bg3);}
         </div>
       </div>
 
-      <!-- LICENSES PAGE -->
+      <!-- LICENSES -->
       <div class="page" id="page-licenses">
         <div class="page-title">🔑 Licenses
           <button class="btn btn-primary btn-sm" onclick="openAddLicense()">+ Add License</button>
@@ -269,7 +236,7 @@ tr:hover td{background:var(--bg3);}
         </div>
       </div>
 
-      <!-- CUSTOMERS PAGE -->
+      <!-- CUSTOMERS -->
       <div class="page" id="page-customers">
         <div class="page-title">👥 Customers</div>
         <div class="stats-grid">
@@ -283,11 +250,10 @@ tr:hover td{background:var(--bg3);}
         </div>
       </div>
 
-      <!-- SETTINGS PAGE -->
+      <!-- SETTINGS -->
       <div class="page" id="page-settings">
         <div class="page-title">⚙️ Settings</div>
 
-        <!-- Payment Numbers -->
         <div class="form-card">
           <h3>💳 Payment Numbers (Extension এ দেখাবে)</h3>
           <div class="form-grid">
@@ -299,14 +265,12 @@ tr:hover td{background:var(--bg3);}
           <div class="save-row"><button class="btn btn-primary" onclick="savePaymentSettings()">💾 Save Payment Settings</button></div>
         </div>
 
-        <!-- Plan Editor -->
         <div class="form-card">
           <h3>📦 Plans & Pricing (Extension এ দেখাবে)</h3>
           <div class="plan-editor-grid" id="plan-editor"></div>
           <div class="save-row"><button class="btn btn-primary" onclick="savePlans()">💾 Save Plans</button></div>
         </div>
 
-        <!-- Add Credit -->
         <div class="form-card">
           <h3>➕ Add Credits to License</h3>
           <div class="form-grid">
@@ -316,7 +280,6 @@ tr:hover td{background:var(--bg3);}
           <div class="save-row"><button class="btn btn-green" onclick="addCredits()">➕ Add Credits</button></div>
         </div>
 
-        <!-- Admin Password -->
         <div class="form-card">
           <h3>🔐 Change Admin Password</h3>
           <div class="form-grid">
@@ -327,9 +290,9 @@ tr:hover td{background:var(--bg3);}
         </div>
       </div>
 
-    </div><!-- main -->
-  </div><!-- layout -->
-</div><!-- app -->
+    </div>
+  </div>
+</div>
 
 <!-- MODAL: Add License -->
 <div class="modal-overlay" id="modal-add-license">
@@ -402,8 +365,7 @@ tr:hover td{background:var(--bg3);}
 <script>
 const SUPA_URL = 'https://rzdzmqimpvlqxwjlatwm.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6ZHptcWltcHZscXh3amxhdHdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4Mzg0NTEsImV4cCI6MjEwNjQxNDQ1MX0.0e-jQTd-0wJ4YiAG3-7cOvw8m5Gt1SWlqY_poabus4k';
-const { createClient } = supabase;
-const db = createClient(SUPA_URL, SUPA_KEY);
+const db = window.supabase.createClient(SUPA_URL, SUPA_KEY);
 
 let currentPlans = [];
 let confirmPayData = null;
@@ -412,26 +374,47 @@ let confirmPayData = null;
 function showToast(msg, type='info'){
   const t = document.getElementById('toast');
   t.textContent = msg; t.className = `toast ${type} show`;
-  setTimeout(()=>t.classList.remove('show'), 3000);
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(()=>t.classList.remove('show'), 3500);
 }
 function closeModal(id){ document.getElementById(id).classList.remove('open'); }
 function openModal(id){ document.getElementById(id).classList.add('open'); }
 function fmtDate(d){ if(!d) return '—'; return new Date(d).toLocaleString('en-BD',{dateStyle:'short',timeStyle:'short'}); }
 function fmtMoney(n){ return '৳' + (n||0).toLocaleString(); }
+// Supabase error check: shows real error instead of failing silently
+function failed(res, label){
+  if(res && res.error){
+    console.error(label, res.error);
+    showToast('❌ '+label+': '+res.error.message,'error');
+    return true;
+  }
+  return false;
+}
 
 // ── AUTH ──
 async function doLogin(){
   const u = document.getElementById('login-user').value.trim();
   const p = document.getElementById('login-pass').value.trim();
   const err = document.getElementById('login-err');
+  const btn = document.getElementById('login-btn');
   err.textContent = '';
   if(!u||!p){ err.textContent='Enter username and password'; return; }
-  const { data } = await db.from('admins').select('*').eq('username',u).eq('password_hash',p).single();
-  if(!data){ err.textContent='Invalid credentials'; return; }
-  localStorage.setItem('loa_admin', JSON.stringify({u,t:Date.now()}));
-  document.getElementById('login-screen').style.display='none';
-  document.getElementById('app').style.display='flex';
-  initApp();
+  btn.disabled = true; btn.textContent = 'Checking...';
+  try{
+    const { data, error } = await db.from('admins').select('id')
+      .eq('username',u).eq('password_hash',p).maybeSingle();
+    if(error){ err.textContent = 'Error: ' + error.message; console.error(error); return; }
+    if(!data){ err.textContent = 'Invalid credentials'; return; }
+    localStorage.setItem('loa_admin', JSON.stringify({u,t:Date.now()}));
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('app').style.display='flex';
+    initApp();
+  }catch(e){
+    err.textContent = 'Network error: ' + (e.message||e);
+    console.error(e);
+  }finally{
+    btn.disabled = false; btn.textContent = 'Login →';
+  }
 }
 function doLogout(){
   localStorage.removeItem('loa_admin');
@@ -439,19 +422,25 @@ function doLogout(){
   document.getElementById('login-screen').style.display='flex';
 }
 function checkAuth(){
-  const d = localStorage.getItem('loa_admin');
-  if(!d) return false;
-  const p = JSON.parse(d);
-  if(Date.now() - p.t > 86400000){ localStorage.removeItem('loa_admin'); return false; }
-  return true;
+  try{
+    const d = localStorage.getItem('loa_admin');
+    if(!d) return false;
+    const p = JSON.parse(d);
+    if(Date.now() - p.t > 86400000){ localStorage.removeItem('loa_admin'); return false; }
+    return true;
+  }catch(e){ return false; }
 }
 
 // ── INIT ──
+let clockStarted = false;
 function initApp(){
-  setInterval(()=>{ document.getElementById('topbar-time').textContent = new Date().toLocaleString('en-BD'); }, 1000);
+  if(!clockStarted){
+    clockStarted = true;
+    setInterval(()=>{ document.getElementById('topbar-time').textContent = new Date().toLocaleString('en-BD'); }, 1000);
+    subscribePayments();
+  }
   loadDashboard();
   loadSettings();
-  subscribePayments();
 }
 
 // ── NAVIGATION ──
@@ -460,6 +449,7 @@ function goPage(name){
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   document.querySelector(`[data-page="${name}"]`).classList.add('active');
+  if(name==='dashboard') loadDashboard();
   if(name==='payments') loadPayments();
   if(name==='licenses') loadLicenses();
   if(name==='customers') loadCustomers();
@@ -468,7 +458,7 @@ function goPage(name){
 // ── REALTIME ──
 function subscribePayments(){
   db.channel('payments').on('postgres_changes',{event:'INSERT',schema:'public',table:'payments'},()=>{
-    loadDashboard(); updatePendingBadge();
+    loadDashboard();
     showToast('🔔 New payment request!','info');
   }).subscribe();
 }
@@ -482,6 +472,7 @@ async function loadDashboard(){
     db.from('payments').select('*').eq('status','confirmed'),
     db.from('licenses').select('*')
   ]);
+  if(failed(pays,'Payments load') || failed(lics,'Licenses load')) return;
 
   const allPays = pays.data||[];
   const allLics = lics.data||[];
@@ -504,8 +495,8 @@ async function loadDashboard(){
   updatePendingBadge(count||0);
   buildRevenueChart(allPays);
 
-  // Recent payments
   const recent = await db.from('payments').select('*').order('created_at',{ascending:false}).limit(10);
+  if(failed(recent,'Recent payments')) return;
   const tbody = document.getElementById('recent-payments');
   tbody.innerHTML = (recent.data||[]).map(p=>`
     <tr>
@@ -515,7 +506,7 @@ async function loadDashboard(){
       <td>${p.payment_method||'—'}</td>
       <td><span class="badge ${p.status}">${p.status}</span></td>
       <td style="color:var(--text3);font-size:12px">${fmtDate(p.created_at)}</td>
-    </tr>`).join('') || '<tr><td colspan="6" class="loading-row">No payments yet</td></tr>';
+    </tr>`).join('') || '<tr class="loading-row"><td colspan="6">No payments yet</td></tr>';
 }
 
 function buildRevenueChart(pays){
@@ -547,15 +538,16 @@ async function loadPayments(){
   const filter = document.getElementById('pay-filter').value;
   let q = db.from('payments').select('*').order('created_at',{ascending:false});
   if(filter!=='all') q = q.eq('status',filter);
-  const { data } = await q;
+  const res = await q;
+  if(failed(res,'Payments')) return;
   const tbody = document.getElementById('payments-tbody');
-  tbody.innerHTML = (data||[]).map(p=>`
+  tbody.innerHTML = (res.data||[]).map(p=>`
     <tr>
       <td>${p.customer_name||'—'}</td>
-      <td><span style="font-family:var(--mono);font-size:12px">${p.customer_phone}</span></td>
-      <td><strong>${p.plan_name||p.plan_id}</strong></td>
+      <td><span style="font-family:var(--mono);font-size:12px">${p.customer_phone||'—'}</span></td>
+      <td><strong>${p.plan_name||p.plan_id||'—'}</strong></td>
       <td style="color:var(--green);font-weight:600">${fmtMoney(p.amount)}</td>
-      <td><span style="font-family:var(--mono);font-size:11px;color:var(--text3)">${p.transaction_id}</span></td>
+      <td><span style="font-family:var(--mono);font-size:11px;color:var(--text3)">${p.transaction_id||'—'}</span></td>
       <td>${p.payment_method||'bkash'}</td>
       <td><span class="badge ${p.status}">${p.status}</span></td>
       <td style="font-size:12px;color:var(--text3)">${fmtDate(p.created_at)}</td>
@@ -569,7 +561,9 @@ async function loadPayments(){
 }
 
 async function openConfirmPay(id){
-  const { data:p } = await db.from('payments').select('*').eq('id',id).single();
+  const res = await db.from('payments').select('*').eq('id',id).maybeSingle();
+  if(failed(res,'Payment load')) return;
+  const p = res.data;
   if(!p) return;
   confirmPayData = p;
   const key = generateKey();
@@ -596,7 +590,7 @@ async function confirmPay(){
   const p = confirmPayData;
   if(!p) return;
   const credits = p.credits || getPlanCredits(p.plan_id);
-  await db.from('licenses').insert({
+  const ins = await db.from('licenses').insert({
     license_key: p._key,
     customer_name: p.customer_name,
     customer_phone: p.customer_phone,
@@ -606,7 +600,9 @@ async function confirmPay(){
     credits_remaining: credits,
     status: 'active'
   });
-  await db.from('payments').update({ status:'confirmed', license_key: p._key, confirmed_at: new Date().toISOString() }).eq('id', p.id);
+  if(failed(ins,'License create')) return;
+  const upd = await db.from('payments').update({ status:'confirmed', license_key: p._key, confirmed_at: new Date().toISOString() }).eq('id', p.id);
+  if(failed(upd,'Payment update')) return;
   closeModal('modal-confirm-pay');
   showToast('✅ Payment confirmed! License activated.','success');
   loadPayments(); loadDashboard();
@@ -614,16 +610,18 @@ async function confirmPay(){
 
 async function rejectPay(id){
   if(!confirm('Reject this payment?')) return;
-  await db.from('payments').update({ status:'rejected' }).eq('id',id);
+  const r = await db.from('payments').update({ status:'rejected' }).eq('id',id);
+  if(failed(r,'Reject')) return;
   showToast('Payment rejected','error');
-  loadPayments();
+  loadPayments(); loadDashboard();
 }
 
 // ── LICENSES ──
 async function loadLicenses(){
-  const { data } = await db.from('licenses').select('*').order('created_at',{ascending:false});
+  const res = await db.from('licenses').select('*').order('created_at',{ascending:false});
+  if(failed(res,'Licenses')) return;
   const tbody = document.getElementById('licenses-tbody');
-  tbody.innerHTML = (data||[]).map(l=>`
+  tbody.innerHTML = (res.data||[]).map(l=>`
     <tr>
       <td><span style="font-family:var(--mono);font-size:12px;color:var(--accent3)">${l.license_key}</span></td>
       <td>${l.customer_name||'—'}</td>
@@ -661,18 +659,21 @@ async function saveLicense(){
   const customCredits = parseInt(document.getElementById('al-credits').value)||0;
   const notes = document.getElementById('al-notes').value.trim();
   const credits = customCredits || getPlanCredits(plan);
-  await db.from('licenses').insert({
+  const r = await db.from('licenses').insert({
     license_key: key, customer_name: name, customer_phone: phone,
     plan_id: plan, credits_total: credits, credits_used: 0,
     credits_remaining: credits, status: 'active', notes
   });
+  if(failed(r,'License create')) return;
   closeModal('modal-add-license');
   showToast('✅ License created!','success');
   loadLicenses();
 }
 
 async function openEditLicense(id){
-  const { data:l } = await db.from('licenses').select('*').eq('id',id).single();
+  const res = await db.from('licenses').select('*').eq('id',id).maybeSingle();
+  if(failed(res,'License load')) return;
+  const l = res.data;
   if(!l) return;
   document.getElementById('el-id').value = l.id;
   document.getElementById('el-name').value = l.customer_name||'';
@@ -684,12 +685,13 @@ async function openEditLicense(id){
 
 async function updateLicense(){
   const id = document.getElementById('el-id').value;
-  await db.from('licenses').update({
+  const r = await db.from('licenses').update({
     customer_name: document.getElementById('el-name').value,
     customer_phone: document.getElementById('el-phone').value,
     status: document.getElementById('el-status').value,
     credits_remaining: parseInt(document.getElementById('el-credits').value)||0
   }).eq('id',id);
+  if(failed(r,'License update')) return;
   closeModal('modal-edit-license');
   showToast('✅ License updated!','success');
   loadLicenses(); loadCustomers();
@@ -697,15 +699,17 @@ async function updateLicense(){
 
 async function deleteLicense(id){
   if(!confirm('Delete this license? Customer will lose access!')) return;
-  await db.from('licenses').delete().eq('id',id);
+  const r = await db.from('licenses').delete().eq('id',id);
+  if(failed(r,'License delete')) return;
   showToast('License deleted','error');
   loadLicenses();
 }
 
 // ── CUSTOMERS ──
 async function loadCustomers(){
-  const { data } = await db.from('licenses').select('*').order('created_at',{ascending:false});
-  const all = data||[];
+  const res = await db.from('licenses').select('*').order('created_at',{ascending:false});
+  if(failed(res,'Customers')) return;
+  const all = res.data||[];
   document.getElementById('cust-active').textContent = all.filter(l=>l.status==='active').length;
   document.getElementById('cust-blocked').textContent = all.filter(l=>l.status==='blocked').length;
   document.getElementById('cust-total').textContent = all.length;
@@ -733,18 +737,22 @@ async function loadCustomers(){
 }
 
 async function blockLicense(id){
-  await db.from('licenses').update({status:'blocked'}).eq('id',id);
+  const r = await db.from('licenses').update({status:'blocked'}).eq('id',id);
+  if(failed(r,'Block')) return;
   showToast('License blocked','error'); loadCustomers();
 }
 async function unblockLicense(id){
-  await db.from('licenses').update({status:'active'}).eq('id',id);
+  const r = await db.from('licenses').update({status:'active'}).eq('id',id);
+  if(failed(r,'Unblock')) return;
   showToast('✅ License unblocked','success'); loadCustomers();
 }
 
 // ── SETTINGS ──
 async function loadSettings(){
-  const { data } = await db.from('settings').select('*').eq('id','global').single();
-  if(!data) return;
+  const res = await db.from('settings').select('*').eq('id','global').maybeSingle();
+  if(failed(res,'Settings')) return;
+  const data = res.data;
+  if(!data){ showToast('⚠️ settings table e id="global" row nai','error'); return; }
   document.getElementById('s-bkash').value = data.bkash_number||'';
   document.getElementById('s-nagad').value = data.nagad_number||'';
   document.getElementById('s-rocket').value = data.rocket_number||'';
@@ -765,20 +773,21 @@ function buildPlanEditor(plans){
 }
 
 async function savePaymentSettings(){
-  await db.from('settings').update({
+  const r = await db.from('settings').update({
     bkash_number: document.getElementById('s-bkash').value,
     nagad_number: document.getElementById('s-nagad').value,
     rocket_number: document.getElementById('s-rocket').value,
     bank_details: document.getElementById('s-bank').value,
     updated_at: new Date().toISOString()
   }).eq('id','global');
+  if(failed(r,'Save settings')) return;
   showToast('✅ Payment settings saved!','success');
 }
 
 async function savePlans(){
-  // recalc per_credit and save
   const updated = currentPlans.map(p=>({...p, per_credit: p.credits>0?(p.price/p.credits).toFixed(2):'0'}));
-  await db.from('settings').update({ plans: updated, updated_at: new Date().toISOString() }).eq('id','global');
+  const r = await db.from('settings').update({ plans: updated, updated_at: new Date().toISOString() }).eq('id','global');
+  if(failed(r,'Save plans')) return;
   showToast('✅ Plans saved! Extension will update automatically.','success');
 }
 
@@ -786,12 +795,15 @@ async function addCredits(){
   const key = document.getElementById('ac-key').value.trim();
   const add = parseInt(document.getElementById('ac-credits').value)||0;
   if(!key||!add){ showToast('Enter key and amount','error'); return; }
-  const { data:l } = await db.from('licenses').select('*').eq('license_key',key).single();
+  const res = await db.from('licenses').select('*').eq('license_key',key).maybeSingle();
+  if(failed(res,'License lookup')) return;
+  const l = res.data;
   if(!l){ showToast('License not found','error'); return; }
-  await db.from('licenses').update({
-    credits_remaining: l.credits_remaining + add,
-    credits_total: l.credits_total + add
+  const r = await db.from('licenses').update({
+    credits_remaining: (l.credits_remaining||0) + add,
+    credits_total: (l.credits_total||0) + add
   }).eq('license_key',key);
+  if(failed(r,'Add credits')) return;
   showToast(`✅ ${add} credits added to ${key}`,'success');
 }
 
@@ -799,7 +811,10 @@ async function changePassword(){
   const np = document.getElementById('new-pass').value;
   const cp = document.getElementById('confirm-pass').value;
   if(!np||np!==cp){ showToast('Passwords do not match','error'); return; }
-  await db.from('admins').update({password_hash:np}).eq('username','admin');
+  const r = await db.from('admins').update({password_hash:np}).eq('username','admin');
+  if(failed(r,'Change password')) return;
+  document.getElementById('new-pass').value='';
+  document.getElementById('confirm-pass').value='';
   showToast('✅ Password changed!','success');
 }
 
